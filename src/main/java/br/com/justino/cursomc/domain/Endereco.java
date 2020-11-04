@@ -9,6 +9,8 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
 import br.com.justino.cursomc.domain.enums.TipoCliente;
 
 @Entity
@@ -27,6 +29,7 @@ public class Endereco implements Serializable {
 	private String cep;
 	@ManyToOne
 	@JoinColumn(name="cliente_id")
+	@JsonBackReference
 	private Cliente cliente;
 	@ManyToOne
 	@JoinColumn(name="cidade_id")
