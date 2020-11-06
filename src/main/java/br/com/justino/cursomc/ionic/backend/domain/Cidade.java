@@ -1,4 +1,4 @@
-package br.com.justino.cursomc.domain;
+package br.com.justino.cursomc.ionic.backend.domain;
 
 import java.io.Serializable;
 

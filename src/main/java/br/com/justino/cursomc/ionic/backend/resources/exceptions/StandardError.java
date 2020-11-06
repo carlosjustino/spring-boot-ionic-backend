@@ -1,4 +1,4 @@
-package br.com.justino.cursomc.resources.exceptions;
+package br.com.justino.cursomc.ionic.backend.resources.exceptions;
 
 import java.io.Serializable;
 

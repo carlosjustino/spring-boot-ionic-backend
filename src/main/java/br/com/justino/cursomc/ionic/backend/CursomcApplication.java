@@ -1,4 +1,4 @@
-package br.com.justino.cursomc;
+package br.com.justino.cursomc.ionic.backend;
 
 import java.text.SimpleDateFormat;
 import java.util.Arrays;
@@ -8,28 +8,28 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
-import br.com.justino.cursomc.domain.Categoria;
-import br.com.justino.cursomc.domain.Cidade;
-import br.com.justino.cursomc.domain.Cliente;
-import br.com.justino.cursomc.domain.Endereco;
-import br.com.justino.cursomc.domain.Estado;
-import br.com.justino.cursomc.domain.ItemPedido;
-import br.com.justino.cursomc.domain.Pagamento;
-import br.com.justino.cursomc.domain.PagamentoComBoleto;
-import br.com.justino.cursomc.domain.PagamentoComCartao;
-import br.com.justino.cursomc.domain.Pedido;
-import br.com.justino.cursomc.domain.Produto;
-import br.com.justino.cursomc.domain.enums.EstadoPagamento;
-import br.com.justino.cursomc.domain.enums.TipoCliente;
-import br.com.justino.cursomc.repositories.CategoriaRepository;
-import br.com.justino.cursomc.repositories.CidadeRepository;
-import br.com.justino.cursomc.repositories.ClienteRepository;
-import br.com.justino.cursomc.repositories.EnderecoRepository;
-import br.com.justino.cursomc.repositories.EstadoRepository;
-import br.com.justino.cursomc.repositories.ItemPedidoRepository;
-import br.com.justino.cursomc.repositories.PagamentoRepository;
-import br.com.justino.cursomc.repositories.PedidoRepository;
-import br.com.justino.cursomc.repositories.ProdutoRepository;
+import br.com.justino.cursomc.ionic.backend.domain.Categoria;
+import br.com.justino.cursomc.ionic.backend.domain.Cidade;
+import br.com.justino.cursomc.ionic.backend.domain.Cliente;
+import br.com.justino.cursomc.ionic.backend.domain.Endereco;
+import br.com.justino.cursomc.ionic.backend.domain.Estado;
+import br.com.justino.cursomc.ionic.backend.domain.ItemPedido;
+import br.com.justino.cursomc.ionic.backend.domain.Pagamento;
+import br.com.justino.cursomc.ionic.backend.domain.PagamentoComBoleto;
+import br.com.justino.cursomc.ionic.backend.domain.PagamentoComCartao;
+import br.com.justino.cursomc.ionic.backend.domain.Pedido;
+import br.com.justino.cursomc.ionic.backend.domain.Produto;
+import br.com.justino.cursomc.ionic.backend.domain.enums.EstadoPagamento;
+import br.com.justino.cursomc.ionic.backend.domain.enums.TipoCliente;
+import br.com.justino.cursomc.ionic.backend.repositories.CategoriaRepository;
+import br.com.justino.cursomc.ionic.backend.repositories.CidadeRepository;
+import br.com.justino.cursomc.ionic.backend.repositories.ClienteRepository;
+import br.com.justino.cursomc.ionic.backend.repositories.EnderecoRepository;
+import br.com.justino.cursomc.ionic.backend.repositories.EstadoRepository;
+import br.com.justino.cursomc.ionic.backend.repositories.ItemPedidoRepository;
+import br.com.justino.cursomc.ionic.backend.repositories.PagamentoRepository;
+import br.com.justino.cursomc.ionic.backend.repositories.PedidoRepository;
+import br.com.justino.cursomc.ionic.backend.repositories.ProdutoRepository;
 
 @SpringBootApplication
 public class CursomcApplication implements CommandLineRunner {

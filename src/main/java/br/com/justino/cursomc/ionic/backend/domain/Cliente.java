@@ -1,4 +1,4 @@
-package br.com.justino.cursomc.domain;
+package br.com.justino.cursomc.ionic.backend.domain;
 
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -16,7 +16,7 @@ import javax.persistence.OneToMany;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
-import br.com.justino.cursomc.domain.enums.TipoCliente;
+import br.com.justino.cursomc.ionic.backend.domain.enums.TipoCliente;
 
 @Entity
 public class Cliente implements Serializable {

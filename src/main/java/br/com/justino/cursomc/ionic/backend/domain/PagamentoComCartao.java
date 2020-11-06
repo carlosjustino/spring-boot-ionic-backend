@@ -1,8 +1,8 @@
-package br.com.justino.cursomc.domain;
+package br.com.justino.cursomc.ionic.backend.domain;
 
 import javax.persistence.Entity;
 
-import br.com.justino.cursomc.domain.enums.EstadoPagamento;
+import br.com.justino.cursomc.ionic.backend.domain.enums.EstadoPagamento;
 @Entity
 public class PagamentoComCartao extends Pagamento {
 

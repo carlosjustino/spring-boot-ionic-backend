@@ -1,4 +1,4 @@
-package br.com.justino.cursomc.resources.exceptions;
+package br.com.justino.cursomc.ionic.backend.resources.exceptions;
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -7,7 +7,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 
-import br.com.justino.cursomc.services.exceptions.ObjectNotFoundException;
+import br.com.justino.cursomc.ionic.backend.services.exceptions.ObjectNotFoundException;
 
 @ControllerAdvice
 public class ResourcesExceptionHandler {

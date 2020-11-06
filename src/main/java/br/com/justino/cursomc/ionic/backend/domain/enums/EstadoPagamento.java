@@ -1,4 +1,4 @@
-package br.com.justino.cursomc.domain.enums;
+package br.com.justino.cursomc.ionic.backend.domain.enums;
 
 public enum EstadoPagamento {
 	

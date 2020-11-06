@@ -1,4 +1,4 @@
-package br.com.justino.cursomc.services.exceptions;
+package br.com.justino.cursomc.ionic.backend.services.exceptions;
 
 public class ObjectNotFoundException extends RuntimeException {
 
