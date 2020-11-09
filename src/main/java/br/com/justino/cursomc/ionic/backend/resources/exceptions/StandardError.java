@@ -3,17 +3,15 @@ package br.com.justino.cursomc.ionic.backend.resources.exceptions;
 import java.io.Serializable;
 
 public class StandardError implements Serializable{
-
-	
 	
 	private static final long serialVersionUID = 1L;
 	private Integer status;
-	private String msg;
+	private String message;
 	private Long timestamp;
 	public StandardError(Integer status, String msg, Long timestamp) {
 		super();
 		this.status = status;
-		this.msg = msg;
+		this.message = msg;
 		this.timestamp = timestamp;
 	}
 	public Integer getStatus() {
@@ -22,11 +20,11 @@ public class StandardError implements Serializable{
 	public void setStatus(Integer status) {
 		this.status = status;
 	}
-	public String getMsg() {
-		return msg;
+	public String getMessage() {
+		return message;
 	}
-	public void setMsg(String msg) {
-		this.msg = msg;
+	public void setMessage(String msg) {
+		this.message = msg;
 	}
 	public Long getTimestamp() {
 		return timestamp;
