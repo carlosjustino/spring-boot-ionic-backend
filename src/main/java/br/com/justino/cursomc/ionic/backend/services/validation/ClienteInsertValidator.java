@@ -6,12 +6,20 @@ import java.util.List;
 import javax.validation.ConstraintValidator;
 import javax.validation.ConstraintValidatorContext;
 
+import org.springframework.beans.factory.annotation.Autowired;
+
+import br.com.justino.cursomc.ionic.backend.domain.Cliente;
 import br.com.justino.cursomc.ionic.backend.domain.enums.TipoCliente;
 import br.com.justino.cursomc.ionic.backend.dto.ClienteNewDTO;
+import br.com.justino.cursomc.ionic.backend.repositories.ClienteRepository;
 import br.com.justino.cursomc.ionic.backend.resources.exceptions.FieldMessage;
 import br.com.justino.cursomc.ionic.backend.services.validation.utils.BR;
 
 public class ClienteInsertValidator implements ConstraintValidator<ClienteInsert, ClienteNewDTO> {
+	
+	@Autowired
+	ClienteRepository ClienteRepository;
+	
 	@Override
 	public void initialize(ClienteInsert ann) {
 	}
@@ -31,6 +39,12 @@ public class ClienteInsertValidator implements ConstraintValidator<ClienteInsert
 		
 		if (objDto.getTipo().equals(TipoCliente.PESSOAJURIDICA.getCodigo()) && !BR.isValidCNPJ(objDto.getCpfOuCnpj())) {
 			list.add(new FieldMessage("cpfOuCnpj", "CNPJ inválido"));
+		}
+		
+		Cliente aux = ClienteRepository.findByEmail(objDto.getEmail());
+		
+		if (aux != null) {
+			list.add(new FieldMessage("email", "E-mail já existente"));
 		}
 		
 		for (FieldMessage e : list) {
