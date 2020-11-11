@@ -19,6 +19,7 @@ import org.springframework.web.cors.CorsConfigurationSource;
 import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
 
 import br.com.justino.cursomc.ionic.backend.security.JWTAuthenticationFilter;
+import br.com.justino.cursomc.ionic.backend.security.JWTAuthorizationFilter;
 import br.com.justino.cursomc.ionic.backend.security.JWTUtil;
 
 @Configuration
@@ -57,6 +58,7 @@ public class SecutiryConfig extends WebSecurityConfigurerAdapter {
 		.antMatchers(PUBLIC_MATCHERS).permitAll()
 		.anyRequest().authenticated();
 		http.addFilter(new JWTAuthenticationFilter(authenticationManager(), jwtUtil));
+		http.addFilter(new JWTAuthorizationFilter(authenticationManager(), jwtUtil, userDetailsService));
 		http.sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS);
 		
 	}
