@@ -3,8 +3,8 @@ package br.com.justino.cursomc.ionic.backend.services;
 import javax.mail.internet.MimeMessage;
 
 import org.springframework.mail.SimpleMailMessage;
-import org.springframework.stereotype.Service;
 
+import br.com.justino.cursomc.ionic.backend.domain.Cliente;
 import br.com.justino.cursomc.ionic.backend.domain.Pedido;
 
 public interface EmailService {
@@ -15,4 +15,5 @@ public interface EmailService {
 	void sendOrderConfirmationHtmlEmail(Pedido obj);
 	void sendHtmlEmail(MimeMessage msg);
 	
+	void sendNewPasswordEmail(Cliente cliente, String newPass);
 }
