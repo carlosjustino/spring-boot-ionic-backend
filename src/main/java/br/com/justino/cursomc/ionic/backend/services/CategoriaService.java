@@ -11,7 +11,6 @@ import org.springframework.data.domain.Sort.Direction;
 import org.springframework.stereotype.Service;
 
 import br.com.justino.cursomc.ionic.backend.domain.Categoria;
-import br.com.justino.cursomc.ionic.backend.domain.Cliente;
 import br.com.justino.cursomc.ionic.backend.dto.CategoriaDTO;
 import br.com.justino.cursomc.ionic.backend.repositories.CategoriaRepository;
 import br.com.justino.cursomc.ionic.backend.services.exceptions.DataIntegrityException;
