@@ -16,11 +16,14 @@ import org.springframework.stereotype.Service;
 import br.com.justino.cursomc.ionic.backend.domain.Cidade;
 import br.com.justino.cursomc.ionic.backend.domain.Cliente;
 import br.com.justino.cursomc.ionic.backend.domain.Endereco;
+import br.com.justino.cursomc.ionic.backend.domain.enums.Perfil;
 import br.com.justino.cursomc.ionic.backend.domain.enums.TipoCliente;
 import br.com.justino.cursomc.ionic.backend.dto.ClienteDTO;
 import br.com.justino.cursomc.ionic.backend.dto.ClienteNewDTO;
 import br.com.justino.cursomc.ionic.backend.repositories.ClienteRepository;
 import br.com.justino.cursomc.ionic.backend.repositories.EnderecoRepository;
+import br.com.justino.cursomc.ionic.backend.security.UserSS;
+import br.com.justino.cursomc.ionic.backend.services.exceptions.AuthorizationException;
 import br.com.justino.cursomc.ionic.backend.services.exceptions.DataIntegrityException;
 import br.com.justino.cursomc.ionic.backend.services.exceptions.ObjectNotFoundException;
 
@@ -37,6 +40,11 @@ public class ClienteService {
 	private BCryptPasswordEncoder passwordEncoder;
 	
 	public Cliente find(Integer id) {
+		UserSS user = UserService.authenticated();
+		System.out.println(user.getId());
+		if (!id.equals(user.getId()) && (user == null || !user.hasRole(Perfil.ADMIN))) {
+			throw new AuthorizationException("Acesso negado");
+		}
 
 		Optional<Cliente> obj = repo.findById(id);
 

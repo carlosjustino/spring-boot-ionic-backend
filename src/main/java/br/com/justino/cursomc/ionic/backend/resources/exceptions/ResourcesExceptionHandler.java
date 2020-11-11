@@ -8,6 +8,7 @@ import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 
+import br.com.justino.cursomc.ionic.backend.services.exceptions.AuthorizationException;
 import br.com.justino.cursomc.ionic.backend.services.exceptions.DataIntegrityException;
 import br.com.justino.cursomc.ionic.backend.services.exceptions.ObjectNotFoundException;
 
@@ -32,4 +33,11 @@ public class ResourcesExceptionHandler {
 		 e.getBindingResult().getFieldErrors().forEach(f -> err.addError(f.getField(), f.getDefaultMessage()));
 		return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(err);
 	}
+	
+	@ExceptionHandler(AuthorizationException.class)
+	public ResponseEntity<StandardError> authorizationException(AuthorizationException e, HttpServletRequest request ){
+		StandardError standardError = new StandardError(HttpStatus.FORBIDDEN.value(), e.getMessage(), System.currentTimeMillis());
+		return ResponseEntity.status(HttpStatus.FORBIDDEN).body(standardError);
+	}
+
 }
