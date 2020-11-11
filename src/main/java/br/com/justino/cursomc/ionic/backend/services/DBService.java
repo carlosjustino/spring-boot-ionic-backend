@@ -20,6 +20,7 @@ import br.com.justino.cursomc.ionic.backend.domain.PagamentoComCartao;
 import br.com.justino.cursomc.ionic.backend.domain.Pedido;
 import br.com.justino.cursomc.ionic.backend.domain.Produto;
 import br.com.justino.cursomc.ionic.backend.domain.enums.EstadoPagamento;
+import br.com.justino.cursomc.ionic.backend.domain.enums.Perfil;
 import br.com.justino.cursomc.ionic.backend.domain.enums.TipoCliente;
 import br.com.justino.cursomc.ionic.backend.repositories.CategoriaRepository;
 import br.com.justino.cursomc.ionic.backend.repositories.CidadeRepository;
@@ -127,7 +128,7 @@ public class DBService {
 		estadoRepository.saveAll(Arrays.asList(est1,est2));
 		cidadeRepository.saveAll(Arrays.asList(c1,c2,c3));
 		
-		Cliente cli1 = new Cliente(null, "Carlos Justino", "carlos.justino08@gmail.com", "36378912377", TipoCliente.PESSOAFISICA, passwordEncoder.encode("123456"));
+		Cliente cli1 = new Cliente(null, "Maria da silva", "maria.silva@gmail.com", "36378912377", TipoCliente.PESSOAFISICA, passwordEncoder.encode("123456"));
 		cli1.getTelefones().addAll(Arrays.asList("27363323","93838393"));
 		
 		Endereco e1 = new Endereco(null, "Rua Flores", "300", "apt 303", "jardim", "38220834", cli1, c1);
@@ -135,8 +136,15 @@ public class DBService {
 		
 		cli1.getEnderecos().addAll(Arrays.asList(e1,e2));
 		
-		clienteRepository.save(cli1);
-		enderecoRepository.saveAll(Arrays.asList(e1,e2));
+		Cliente cli2 = new Cliente(null, "Carlos Justino", "carlos.justino08@gmail.com", "05421457907", TipoCliente.PESSOAFISICA, passwordEncoder.encode("123456"));
+		cli1.getTelefones().addAll(Arrays.asList("991114568"));
+		cli2.addPerfil(Perfil.ADMIN);
+		
+		Endereco e3 = new Endereco(null, "Rua Marechal", "310", "apt 3203", "jardi3m", "38220834", cli2, c2);
+		cli2.getEnderecos().add(e3);
+		
+		clienteRepository.saveAll(Arrays.asList(cli1,cli2));
+		enderecoRepository.saveAll(Arrays.asList(e1,e2,e3));
 		
 		SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy HH:mm");
 		
