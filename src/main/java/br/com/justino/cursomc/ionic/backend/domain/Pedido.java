@@ -1,8 +1,11 @@
 package br.com.justino.cursomc.ionic.backend.domain;
 
 import java.io.Serializable;
+import java.text.NumberFormat;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.HashSet;
+import java.util.Locale;
 import java.util.Set;
 import java.util.stream.Collectors;
 
@@ -146,7 +149,25 @@ public class Pedido implements Serializable {
 	}
 
 
-	
+	@Override
+	public String toString() {
+		NumberFormat nf = NumberFormat.getCurrencyInstance(new Locale("pt", "BR"));
+		StringBuilder builder = new StringBuilder();
+		builder.append("Pedido: ");
+		builder.append(getId());
+		builder.append(", Data e Hora: ");
+		builder.append(new SimpleDateFormat("dd/MM/yyyy HH:mm").format(getInstante()));
+		builder.append("\nCliente: ");
+		builder.append(getCliente().getNome());
+		builder.append("\nEstado do Pagamento: ");
+		builder.append(getPagamento().getEstado().getDescricao());
+		builder.append("\nDetalhes: ");
+		builder.append("\n   ");
+		builder.append(String.join("\n   ", getItens().stream().map(i -> i.toString()).collect(Collectors.toList())));
+		builder.append("\nTotal: ");
+		builder.append(nf.format(getValorTotal()));
+		return builder.toString();
+	}
 	
 	
 }
